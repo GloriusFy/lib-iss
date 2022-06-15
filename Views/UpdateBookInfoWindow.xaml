@@ -1,0 +1,118 @@
+﻿<Window x:Class="lib_iis.Views.UpdateBookInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lib_iis.Views"
+        mc:Ignorable="d"
+        Height="350"
+        Width="410" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
+    
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Text="Title" 
+            VerticalAlignment="Center"/>
+        <TextBox
+            Grid.Column="1" 
+            Height="35" 
+            Width="270" 
+            HorizontalAlignment="Left"
+            TextWrapping="Wrap" 
+            Text="{Binding SelectedBook.Title, Mode=TwoWay}"/>
+
+        <TextBlock
+            Grid.Row="1"
+            Text="Author's" 
+            VerticalAlignment="Center"/>
+        <TextBox 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Height="35" 
+            Width="270"
+            TextWrapping="Wrap"  
+            HorizontalAlignment="Left"
+            Text="{Binding SelectedBook.Authors, Mode=TwoWay}"/>
+
+        <TextBlock 
+            Grid.Row="2"
+            Text="Book number" 
+            VerticalAlignment="Center"/>
+        <TextBox 
+            Grid.Row="2"
+            Grid.Column="1"
+            Height="20" 
+            Width="150" 
+            HorizontalAlignment="Left"
+            Text="{Binding SelectedBook.ISBN, Mode=TwoWay}"/>
+
+        <TextBlock 
+            Grid.Row="3"
+            Text="Publishing Year" 
+            VerticalAlignment="Center"/>
+        <TextBox
+            Grid.Row="3" 
+            Grid.Column="1" 
+            Height="20" 
+            Width="100" 
+            HorizontalAlignment="Left" 
+            Text="{Binding SelectedBook.PublishingYear, Mode=TwoWay}"/>
+
+        <TextBlock 
+            Grid.Row="4"
+            Text="Total Copies"
+            VerticalAlignment="Center"/>
+        <TextBox 
+            Grid.Row="4"
+            Grid.Column="1" 
+            Height="20"
+            Width="100"
+            HorizontalAlignment="Left"
+            Text="{Binding SelectedBook.TotalCopies, Mode=TwoWay}"/>
+
+        <TextBlock 
+            Grid.Row="5"
+            Text="Available Copies"
+            VerticalAlignment="Center"/>
+        <TextBox 
+            Grid.Row="5"
+            Grid.Column="1" 
+            Height="20" 
+            Width="100" 
+            HorizontalAlignment="Left"
+            Text="{Binding SelectedBook.AvailableCopies, Mode=TwoWay}"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2">
+            <Button
+                Content="Update Book"
+                Foreground="White"
+                Background="Black"
+                Margin="10,5"
+                Width="100"
+                Command="{Binding UpdateBookCommand}"/>
+            <Button 
+                Content="Cancel"
+                Foreground="White"
+                Background="#004a7c"
+                Margin="10,5"
+                Width="100"
+                Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
